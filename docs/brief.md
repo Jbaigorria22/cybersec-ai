@@ -1,163 +1,163 @@
 # CyberSec AI — Project Brief
 
-> **Versión:** 1.1 · **Fecha:** 2026-10-29 · **Estado del proyecto:** Fase 1 — Diseño (Etapa 1 de 7)
+> **Version:** 1.1 · **Date:** 2026-10-29 · **Project status:** Phase 1 — Design (Stage 1 of 7)
 
-## 1. Visión del proyecto
+## 1. Project Vision
 
-**CyberSec AI** es un proyecto de ciberseguridad que busca combinar detección determinística, inteligencia artificial y herramientas de investigación para ayudar a los analistas de seguridad a identificar, comprender e investigar actividades sospechosas en entornos cloud.
+**CyberSec AI** is a cybersecurity project that combines deterministic detection, artificial intelligence, and investigation tooling to help security analysts identify, understand, and investigate suspicious activity in cloud environments.
 
-El objetivo es evolucionar desde un motor de detección basado en evidencia hasta una plataforma de investigación asistida por IA, con una interfaz visual profesional, explicaciones fundamentadas y flujos de investigación controlados.
+The goal is to evolve from an evidence-based detection engine into an AI-assisted investigation platform, with a professional visual interface, grounded explanations, and controlled investigation workflows.
 
-No se trata simplemente de conectar un LLM a registros de seguridad. El valor del proyecto estará en combinar detecciones verificables, evidencia trazable, evaluación cuantitativa y asistencia inteligente.
+This is not simply about connecting an LLM to security logs. The project's value lies in combining verifiable detections, traceable evidence, quantitative evaluation, and intelligent assistance.
 
-### Objetivos principales
+### Main Objectives
 
-- Detectar comportamientos sospechosos a partir de eventos de seguridad.
-- Generar alertas reproducibles y respaldadas por evidencia.
-- Utilizar IA para explicar hallazgos, distinguir hechos de hipótesis y proponer pasos de investigación.
-- Incorporar progresivamente RAG, agentes y herramientas de seguridad con permisos limitados.
-- Construir una aplicación cloud-native, segura, escalable y desplegable mediante infraestructura como código.
-- Desarrollar un portfolio técnico que demuestre competencias en Cloud Engineering, AI Engineering y Cybersecurity.
+- Detect suspicious behavior from security events.
+- Generate reproducible, evidence-backed alerts.
+- Use AI to explain findings, separate facts from hypotheses, and suggest investigation steps.
+- Progressively add RAG, agents, and security tools with limited permissions.
+- Build a cloud-native, secure, scalable application deployable through infrastructure as code.
+- Develop a technical portfolio that demonstrates skills in Cloud Engineering, AI Engineering, and Cybersecurity.
 
-### Posicionamiento frente a proyectos previos
+### Positioning Relative to Previous Projects
 
-| Proyecto | Enfoque | Relación con CyberSec AI |
+| Project | Focus | Relationship to CyberSec AI |
 |---|---|---|
-| **Guard-RAG** | *Security of AI*: proteger una aplicación de IA | Se reutilizan sus prácticas de defensa contra prompt injection y de evaluación |
-| **ThreatScribe** | Fundamentos de detección sobre logs | Suspendido; sus aprendizajes se integran en la Fase 1 |
-| **CyberSec AI** | *AI for Security*: usar IA para investigar incidentes en AWS | Proyecto actual |
+| **Guard-RAG** | *Security of AI*: protecting an AI application | Its prompt-injection defenses and evaluation practices are reused |
+| **ThreatScribe** | Detection fundamentals on logs | Paused; its lessons are folded into Phase 1 |
+| **CyberSec AI** | *AI for Security*: using AI to investigate incidents in AWS | Current project |
 
-## 2. Usuario objetivo
+## 2. Target User
 
-La primera versión estará orientada a **analistas de seguridad y profesionales de ciberseguridad que necesitan investigar eventos y comprender alertas con mayor rapidez**.
+The first version targets **security analysts and cybersecurity professionals who need to investigate events and understand alerts faster**.
 
-La plataforma debería permitirles responder preguntas como:
+The platform should help them answer questions such as:
 
-- ¿Qué ocurrió?
-- ¿Qué identidad realizó la acción?
-- ¿Cuándo y desde dónde ocurrió?
-- ¿Por qué se generó esta alerta?
-- ¿Qué evidencia respalda la detección?
-- ¿Qué debería investigar a continuación?
-- ¿Qué tan confiable es la conclusión y qué información falta?
+- What happened?
+- Which identity performed the action?
+- When and from where did it happen?
+- Why was this alert generated?
+- What evidence supports the detection?
+- What should be investigated next?
+- How reliable is the conclusion, and what information is missing?
 
-A futuro, el proyecto podría incorporar una vista ejecutiva para responsables de pequeñas y medianas empresas, con resúmenes de riesgos y recomendaciones comprensibles sin conocimientos técnicos avanzados.
+In the future, the project could add an executive view for small and medium-sized business owners, with risk summaries and recommendations that do not require advanced technical knowledge.
 
-## 3. Referencia visual y experiencia de usuario
+## 3. Visual Reference and User Experience
 
-La imagen de referencia proporcionada para el proyecto muestra un dashboard de ciberseguridad (diseño de terceros). Se utilizará como **inspiración visual y funcional**, no como una interfaz que deba copiarse literalmente. La imagen se conserva solo como referencia privada y **no se incluye en el repositorio público**.
+The reference image provided for the project shows a third-party cybersecurity dashboard design. It will be used as **visual and functional inspiration**, not as an interface to be copied literally. The image is kept only as a private reference and **is not included in the public repository**.
 
-La dirección visual deseada es una aplicación moderna de seguridad, con estética oscura, acentos violetas, tarjetas bien organizadas, gráficos legibles y una jerarquía visual clara.
+The desired visual direction is a modern security application with a dark theme, violet accents, well-organized cards, readable charts, and a clear visual hierarchy.
 
-### Adaptación de la referencia a CloudTrail
+### Adapting the Reference to CloudTrail
 
-La referencia está pensada para aplicaciones SaaS (Slack, Jira, GitHub). Cada componente se adapta a lo que CloudTrail realmente puede informar:
+The reference is designed for SaaS applications (Slack, Jira, GitHub). Each component is adapted to what CloudTrail can actually report:
 
-| Componente de la referencia | Equivalente en CyberSec AI | Fuente de datos | Disponible desde |
+| Reference component | CyberSec AI equivalent | Data source | Available from |
 |---|---|---|---|
-| Violations Summary | Hallazgos por severidad | Motor de detección | Fase 1 (UI inicial) |
-| Event Severity (barras por hora) | Hallazgos por severidad en el tiempo | Hallazgos + `event_time` | Fase 1 (UI inicial) |
-| Incident Timeline | Línea de tiempo de eventos de un hallazgo | Evidencia del hallazgo | Fase 1 (UI inicial) |
-| Risk by Application | Hallazgos por servicio AWS (`event_source`) o por identidad | Hallazgos | Fase 1 (UI inicial) |
-| Event Types | Hallazgos por regla o categoría (acceso, evasión, privilegios) | Catálogo de reglas | Fase 1 (UI inicial) |
-| Live Threat Map | Actividad por región AWS / IP de origen | `aws_region`, `source_ip` | Posterior (requiere ingesta continua) |
-| Detection Confidence | Precisión y recall **por regla**, medidos sobre datos etiquetados | Módulo de evaluación | Fase 1 (como reporte de evaluación, no como métrica en vivo) |
-| Security Query | Consulta conversacional sobre hallazgos | Capa de IA | Fase de asistencia con IA |
-| Users / Endpoints / Apps monitored | Identidades y cuentas observadas | Eventos normalizados | Posterior |
+| Violations Summary | Findings by severity | Detection engine | Phase 1 (initial UI) |
+| Event Severity (hourly bars) | Findings by severity over time | Findings + `event_time` | Phase 1 (initial UI) |
+| Incident Timeline | Timeline of events behind a finding | Finding evidence | Phase 1 (initial UI) |
+| Risk by Application | Findings by AWS service (`event_source`) or by identity | Findings | Phase 1 (initial UI) |
+| Event Types | Findings by rule or category (access, evasion, privileges) | Rule catalog | Phase 1 (initial UI) |
+| Live Threat Map | Activity by AWS region / source IP | `aws_region`, `source_ip` | Later (requires continuous ingestion) |
+| Detection Confidence | Precision and recall **per rule**, measured on labeled data | Evaluation module | Phase 1 (as an evaluation report, not a live metric) |
+| Security Query | Conversational querying of findings | AI layer | AI-assistance phase |
+| Users / Endpoints / Apps monitored | Observed identities and accounts | Normalized events | Later |
 
-> **Regla de honestidad visual:** las métricas de calidad (falsos positivos, verdaderos positivos) solo existen cuando hay datos etiquetados. En producción no se conoce la verdad de referencia, por lo que el dashboard nunca mostrará esas métricas como si fueran mediciones en vivo.
+> **Visual honesty rule:** quality metrics (false positives, true positives) only exist when labeled data exists. In production the ground truth is unknown, so the dashboard will never present those metrics as if they were live measurements.
 
-### Elementos visuales deseados
+### Desired Visual Elements
 
-- **Overview dashboard:** resumen del estado de seguridad y las alertas.
-- **Violations Summary:** cantidad de hallazgos por severidad: crítica, alta, media y baja.
-- **Threat Monitoring:** visualización de actividad sospechosa y evolución temporal de los eventos.
-- **Detection Metrics:** métricas de calidad de las detecciones cuando existan datos etiquetados suficientes.
-- **Incident Timeline:** secuencia cronológica de los eventos relacionados con una investigación.
-- **Risk by Resource:** distribución de hallazgos por servicio, identidad o recurso cloud.
-- **Event Types:** clasificación de hallazgos por categoría.
-- **Security Query:** una interfaz conversacional para consultar hallazgos y solicitar asistencia durante una investigación.
-- **Incident Investigation:** una vista detallada con evidencia, explicación, hipótesis, nivel de confianza y acciones recomendadas.
+- **Overview dashboard:** summary of security posture and alerts.
+- **Violations Summary:** number of findings by severity: critical, high, medium, and low.
+- **Threat Monitoring:** visualization of suspicious activity and how events evolve over time.
+- **Detection Metrics:** detection quality metrics when enough labeled data exists.
+- **Incident Timeline:** chronological sequence of the events related to an investigation.
+- **Risk by Resource:** distribution of findings by service, identity, or cloud resource.
+- **Event Types:** classification of findings by category.
+- **Security Query:** a conversational interface to query findings and request help during an investigation.
+- **Incident Investigation:** a detailed view with evidence, explanation, hypotheses, confidence level, and recommended actions.
 
-### Principios de diseño
+### Design Principles
 
-1. Priorizar la legibilidad y la utilidad analítica sobre los efectos visuales.
-2. Utilizar colores para comunicar severidad y estado, no solamente como decoración.
-3. Mantener una interfaz consistente, con navegación clara y componentes reutilizables.
-4. Evitar gráficos, porcentajes o indicadores ficticios que parezcan métricas reales.
-5. Mostrar siempre la evidencia que respalda una alerta y permitir rastrear su origen.
-6. Diseñar una interfaz que pueda crecer sin necesidad de reconstruir toda la aplicación.
-7. No depender solo del color para comunicar severidad: acompañarlo siempre con texto o íconos (accesibilidad).
+1. Prioritize readability and analytical usefulness over visual effects.
+2. Use color to communicate severity and status, not just as decoration.
+3. Keep the interface consistent, with clear navigation and reusable components.
+4. Avoid fictional charts, percentages, or indicators that look like real metrics.
+5. Always show the evidence behind an alert and allow tracing it back to its source.
+6. Design an interface that can grow without rebuilding the whole application.
+7. Never rely on color alone to communicate severity: always pair it with text or icons (accessibility).
 
-La referencia visual representa la dirección deseada del producto a largo plazo. El MVP no necesita implementar todos estos componentes de inmediato. La interfaz debe crecer junto con las capacidades reales del sistema.
+The visual reference represents the long-term product direction. The MVP does not need to implement all of these components right away. The interface must grow alongside the system's real capabilities.
 
-## 4. Alcance inicial: MVP (Fase 1)
+## 4. Initial Scope: MVP (Phase 1)
 
-La primera versión se centrará en AWS CloudTrail y utilizará eventos sintéticos etiquetados para desarrollar y evaluar un motor de detección reproducible.
+The first version focuses on AWS CloudTrail and uses labeled synthetic events to develop and evaluate a reproducible detection engine.
 
-### Funcionalidades iniciales
+### Initial Features
 
-**1. Ingesta de eventos**
+**1. Event Ingestion**
 
-Leer registros de CloudTrail en formato JSON (estructura `{"Records": [...]}`, como los entrega CloudTrail en S3). Inicialmente se utilizarán conjuntos de datos sintéticos, sin conectar una cuenta AWS real. Los registros inválidos se rechazan y se reportan; no detienen el procesamiento del resto.
+Read CloudTrail records in JSON format (`{"Records": [...]}` structure, as CloudTrail delivers them to S3). Synthetic datasets will be used initially, without connecting a real AWS account. Invalid records are rejected and reported; they do not stop processing of the rest.
 
-**2. Normalización**
+**2. Normalization**
 
-Convertir cada registro a un esquema común `NormalizedEvent`, preservando la trazabilidad y evitando que las reglas dependan directamente de la estructura del JSON original.
+Convert each record into a common `NormalizedEvent` schema, preserving traceability and preventing rules from depending directly on the original JSON structure.
 
-**3. Detección determinística**
+**3. Deterministic Detection**
 
-Implementar reglas explícitas para identificar patrones sospechosos. Las primeras candidatas son:
+Implement explicit rules to identify suspicious patterns. The first candidates are:
 
-- Uso de la cuenta root, con evaluación adicional del uso de MFA cuando la información esté disponible.
-- Múltiples intentos fallidos de inicio de sesión en la consola desde una misma IP, con escalamiento si luego hay un inicio de sesión exitoso.
-- Intentos de detener, eliminar o modificar la configuración de CloudTrail que puedan afectar la monitorización.
+- Root account usage, with additional evaluation of MFA usage when that information is available.
+- Multiple failed console sign-in attempts from the same IP, escalated if a successful sign-in follows.
+- Attempts to stop, delete, or modify CloudTrail configuration in ways that could affect monitoring.
 
-Cada regla deberá tener una lógica documentada, condiciones de activación, severidad, falsos positivos conocidos y pruebas automatizadas. Las reglas se basan en los controles de monitoreo del CIS AWS Foundations Benchmark.
+Each rule must have documented logic, trigger conditions, severity, known false positives, and automated tests. The rules are based on the monitoring controls of the CIS AWS Foundations Benchmark.
 
-**4. Evidencia y hallazgos**
+**4. Evidence and Findings**
 
-Cada detección debe producir un hallazgo estructurado que incluya, como mínimo:
+Each detection must produce a structured finding that includes, at minimum:
 
-- Identificador de la regla.
-- Severidad.
-- Motivo de la detección.
-- Eventos relacionados (identificadores).
-- Evidencia verificable.
-- Marca temporal.
-- Identificador de la investigación (opcional; se definirá cuando exista agrupación de hallazgos).
+- Rule identifier.
+- Severity.
+- Detection rationale.
+- Related events (identifiers).
+- Verifiable evidence.
+- Timestamp.
+- Investigation identifier (optional; to be defined once findings are grouped).
 
-**5. Evaluación**
+**5. Evaluation**
 
-Crear pruebas y conjuntos de datos etiquetados para medir la calidad del detector. Evaluar precisión, recall y falsos positivos por regla. Las etiquetas (verdad de referencia) se almacenan **separadas** de los eventos, para que el detector nunca pueda acceder a ellas.
+Create tests and labeled datasets to measure detector quality. Evaluate precision, recall, and false positives per rule. Labels (ground truth) are stored **separately** from events, so the detector can never access them.
 
-**6. Interfaz inicial**
+**6. Initial Interface**
 
-Una vez que el motor produzca resultados fiables, construir una interfaz web para consultar las detecciones, filtrar hallazgos y explorar su evidencia. El diseño debe seguir la dirección visual establecida, pero solo mostrará métricas y funcionalidades realmente implementadas.
+Once the engine produces reliable results, build a web interface to browse detections, filter findings, and explore their evidence. The design should follow the established visual direction but will only display metrics and features that are actually implemented.
 
-### Fuera de alcance de la Fase 1
+### Out of Scope for Phase 1
 
-- Conexión a cuentas AWS reales.
-- Procesamiento en tiempo real.
-- Componentes de IA (LLM, RAG, agentes).
-- Soporte multi-cliente y roles de usuario.
-- Respuesta automática a incidentes.
+- Connections to real AWS accounts.
+- Real-time processing.
+- AI components (LLM, RAG, agents).
+- Multi-tenant support and user roles.
+- Automated incident response.
 
-### Definición de terminado (Fase 1)
+### Definition of Done (Phase 1)
 
-La Fase 1 se considera terminada cuando:
+Phase 1 is considered done when:
 
-1. Las 3 reglas iniciales están implementadas, documentadas y probadas (casos positivos y negativos).
-2. Existe un dataset sintético etiquetado y reproducible.
-3. Se reportan precisión y recall por regla.
-4. Cada hallazgo puede rastrearse hasta sus eventos de origen.
-5. El repositorio incluye README, ADRs y limitaciones conocidas.
+1. The 3 initial rules are implemented, documented, and tested (positive and negative cases).
+2. A labeled, reproducible synthetic dataset exists.
+3. Precision and recall are reported per rule.
+4. Every finding can be traced back to its source events.
+5. The repository includes a README, ADRs, and known limitations.
 
-Todo lo posterior a este punto se considera una extensión del proyecto, no un requisito para darlo por terminado.
+Anything beyond this point is considered an extension of the project, not a requirement for calling it done.
 
-## 5. Arquitectura conceptual
+## 5. Conceptual Architecture
 
-La arquitectura deberá separar las responsabilidades de procesamiento, detección, explicación y presentación. Cada etapa recibe y entrega datos con un contrato definido.
+The architecture must separate the responsibilities of processing, detection, explanation, and presentation. Each stage receives and returns data under a defined contract.
 
 ```
 CloudTrail JSON
@@ -166,153 +166,155 @@ Ingestion & Validation
       │
 Normalization Layer ──────► NormalizedEvent
       │
-Detection Engine (reglas determinísticas)
+Detection Engine (deterministic rules)
       │
-Findings & Evidence ──────► Evaluation ◄── Etiquetas (verdad de referencia)
+Findings & Evidence ──────► Evaluation ◄── Labels (ground truth)
       │
-AI Analysis Layer (futuro: explica, nunca detecta)
+AI Analysis Layer (future: explains, never detects)
       │
 Application API
       │
 Security Dashboard
 ```
 
-El flujo inicial se implementará de forma local y controlada. La arquitectura podrá evolucionar hacia servicios administrados de AWS cuando exista una necesidad concreta.
+The initial flow will be implemented locally and in a controlled way. The architecture may evolve toward AWS managed services when there is a concrete need.
 
-La elección de frameworks, servicios y patrones de arquitectura deberá justificarse por requisitos reales, no por la cantidad de tecnologías que sea posible incorporar.
+The choice of frameworks, services, and architectural patterns must be justified by real requirements, not by the number of technologies that could be added.
 
-## 6. Rol de la inteligencia artificial
+## 6. Role of Artificial Intelligence
 
-La IA debe complementar el motor de detección, no reemplazarlo. **La IA nunca decide si hubo una detección**: solo trabaja sobre hallazgos ya producidos por el motor.
+AI must complement the detection engine, not replace it. **AI never decides whether a detection occurred**: it only works on findings already produced by the engine.
 
-### Responsabilidades de la IA
+### AI Responsibilities
 
-- Explicar por qué un hallazgo merece atención.
-- Resumir una secuencia de eventos relacionados.
-- Diferenciar hechos observados de hipótesis.
-- Identificar información faltante.
-- Recomendar próximos pasos de investigación.
-- Consultar documentación y procedimientos de seguridad en fases posteriores.
-- Utilizar herramientas de investigación autorizadas cuando el sistema incorpore capacidades de agente.
+- Explain why a finding deserves attention.
+- Summarize a sequence of related events.
+- Separate observed facts from hypotheses.
+- Identify missing information.
+- Recommend next investigation steps.
+- Consult security documentation and procedures in later phases.
+- Use authorized investigation tools once the system adds agent capabilities.
 
-### Límites y garantías
+### Limits and Guarantees
 
-- El LLM no debe inventar evidencia ni presentar hipótesis como hechos confirmados.
-- Las conclusiones deben estar vinculadas a eventos y hallazgos verificables.
-- Las respuestas estructuradas deben validarse antes de ser utilizadas por la aplicación.
-- Los registros y documentos recuperados deben tratarse como datos no confiables, nunca como instrucciones privilegiadas. Campos como `userAgent` o `requestParameters` pueden ser controlados por un atacante.
-- Las acciones sensibles deben requerir autorización humana.
-- Las herramientas de un futuro agente deben tener permisos mínimos y alcance explícito.
-- Cualquier componente de IA debe demostrar, con métricas, una mejora frente a la línea base sin IA.
+- The LLM must not invent evidence or present hypotheses as confirmed facts.
+- Conclusions must be linked to verifiable events and findings.
+- Structured responses must be validated before the application uses them.
+- Logs and retrieved documents must be treated as untrusted data, never as privileged instructions. Fields such as `userAgent` or `requestParameters` can be controlled by an attacker.
+- Sensitive actions must require human authorization.
+- Future agent tools must have minimal permissions and an explicit scope.
+- Any AI component must demonstrate, with metrics, an improvement over the non-AI baseline.
 
-## 7. Evolución tecnológica prevista
+## 7. Planned Technology Evolution
 
-Las tecnologías se incorporarán progresivamente cuando resuelvan una necesidad identificada.
+Technologies will be added progressively when they solve an identified need.
 
-### Fase inicial: motor de detección
+### Initial Phase: Detection Engine
 
 - Python.
-- Pydantic para validación y normalización.
-- Pytest para pruebas automatizadas.
-- Ruff para linting y formato del código.
-- JSON y conjuntos de datos sintéticos.
-- Reglas determinísticas y métricas de evaluación.
+- Pydantic for validation and normalization.
+- Pytest for automated testing.
+- Ruff for code linting and formatting.
+- JSON and synthetic datasets.
+- Deterministic rules and evaluation metrics.
 
-### Fase de asistencia con IA
+### AI-Assistance Phase
 
-- Un LLM para generar explicaciones basadas en evidencia.
-- Salidas estructuradas y validación de respuestas.
-- Evaluaciones de calidad, fidelidad y afirmaciones no respaldadas (juez de una familia de modelos distinta a la del generador).
+- An LLM to generate evidence-based explanations.
+- Structured outputs and response validation.
+- Evaluations of quality, faithfulness, and unsupported claims (judge from a different model family than the generator).
 
-### Fase de conocimiento y agentes
+### Knowledge and Agents Phase
 
-- RAG sobre documentación y procedimientos de seguridad.
-- Herramientas de investigación de solo lectura.
-- LangChain, LangGraph, MCP y LangSmith cuando su incorporación esté justificada por necesidades de integración, orquestación, interoperabilidad o evaluación.
+- RAG over security documentation and procedures.
+- Read-only investigation tools.
+- LangChain, LangGraph, MCP, and LangSmith when justified by integration, orchestration, interoperability, or evaluation needs.
 
-Estas tecnologías no forman parte de los requisitos obligatorios del MVP.
+These technologies are not mandatory MVP requirements.
 
-### Fase cloud
+### Cloud Phase
 
-- Servicios administrados de AWS, seleccionados según los requisitos de la aplicación.
-- IAM y principio de mínimo privilegio.
-- Cifrado, gestión de secretos, logging y monitorización.
-- Infraestructura como código con Terraform.
-- Despliegue reproducible, destrucción de infraestructura cuando no se usa y control de costos.
+- AWS managed services, selected according to application requirements.
+- IAM and the principle of least privilege.
+- Encryption, secrets management, logging, and monitoring.
+- Infrastructure as code with Terraform.
+- Reproducible deployment, tearing down infrastructure when not in use, and cost control.
 
-## 8. Seguridad, privacidad y confiabilidad
+## 8. Security, Privacy, and Reliability
 
-La seguridad debe ser una propiedad del sistema desde el comienzo.
+Security must be a property of the system from the start.
 
-- Utilizar datos sintéticos durante el desarrollo inicial.
-- No almacenar credenciales ni secretos en el repositorio.
-- Validar los registros antes de procesarlos.
-- Limitar el acceso a los eventos originales.
-- Evitar enviar registros completos al LLM cuando no sean necesarios.
-- Mantener trazabilidad entre hallazgos y evidencia original.
-- Aplicar permisos mínimos a los servicios y herramientas.
-- Operar en modo de solo lectura: no ejecutar acciones destructivas ni modificar recursos de forma autónoma.
-- Documentar limitaciones, supuestos y falsos positivos conocidos.
+- Use synthetic data during initial development.
+- Never store credentials or secrets in the repository.
+- Validate records before processing them.
+- Limit access to original events.
+- Avoid sending full logs to the LLM when not necessary.
+- Maintain traceability between findings and original evidence.
+- Apply least privilege to services and tools.
+- Operate in read-only mode: never execute destructive actions or modify resources autonomously.
+- Document limitations, assumptions, and known false positives.
 
-## 9. Riesgos conocidos
+## 9. Known Risks
 
-| Riesgo | Mitigación |
+| Risk | Mitigation |
 |---|---|
-| Dataset sintético demasiado "fácil", con métricas engañosamente altas | Incluir casos ambiguos y falsos positivos realistas (por ejemplo, un administrador que se equivoca de contraseña) |
-| Crecimiento descontrolado del alcance | Definición de terminado explícita para la Fase 1 |
-| Prompt injection a través de campos de logs | Tratar los logs como datos no confiables; enviar hallazgos agregados al LLM |
-| Una interfaz atractiva que sugiere capacidades inexistentes | Regla de honestidad visual |
-| Costos de AWS inesperados | Desarrollo local primero; infraestructura efímera con Terraform |
+| A synthetic dataset that is too "easy", producing misleadingly high metrics | Include ambiguous cases and realistic false positives (for example, an administrator mistyping a password) |
+| Uncontrolled scope growth | Explicit definition of done for Phase 1 |
+| Prompt injection through log fields | Treat logs as untrusted data; send aggregated findings to the LLM |
+| An attractive interface that suggests nonexistent capabilities | Visual honesty rule |
+| Unexpected AWS costs | Local development first; ephemeral infrastructure with Terraform |
 
-## 10. Criterios de éxito
+## 10. Success Criteria
 
-El proyecto no se considerará exitoso únicamente porque produzca alertas o presente un dashboard atractivo.
+The project will not be considered successful just because it produces alerts or shows an attractive dashboard.
 
-Su calidad se evaluará mediante:
+Its quality will be evaluated through:
 
-- Correcta normalización de los eventos contemplados.
-- Reglas determinísticas reproducibles.
-- Pruebas automatizadas que cubran casos positivos y negativos.
-- Precisión y recall medidos sobre conjuntos de datos etiquetados.
-- Trazabilidad completa de las alertas hasta su evidencia.
-- Explicaciones de IA fieles a los hallazgos y sin afirmaciones no respaldadas.
-- Controles de seguridad apropiados para las capacidades implementadas.
-- Interfaz coherente con los datos reales que el sistema puede proporcionar.
-- Documentación clara de la arquitectura, decisiones técnicas y limitaciones.
+- Correct normalization of the supported events.
+- Reproducible deterministic rules.
+- Automated tests covering positive and negative cases.
+- Precision and recall measured on labeled datasets.
+- Full traceability from alerts to their evidence.
+- AI explanations faithful to the findings and free of unsupported claims.
+- Security controls appropriate to the implemented capabilities.
+- An interface consistent with the real data the system can provide.
+- Clear documentation of architecture, technical decisions, and limitations.
 
-## 11. Forma de trabajo
+## 11. Way of Working
 
-El desarrollo será incremental y guiado por decisiones técnicas explícitas.
+Development will be incremental and driven by explicit technical decisions.
 
-Antes de implementar una nueva etapa:
+Before implementing a new stage:
 
-1. Explicar el problema que se busca resolver.
-2. Definir el resultado esperado.
-3. Comparar las alternativas relevantes.
-4. Elegir la solución y justificarla.
-5. Registrar la decisión en un ADR (`docs/adr/`).
-6. Implementar una unidad pequeña y comprensible.
-7. Probarla y documentar sus limitaciones.
-8. Continuar únicamente cuando la etapa actual esté suficientemente validada.
+1. Explain the problem to be solved.
+2. Define the expected outcome.
+3. Compare the relevant alternatives.
+4. Choose the solution and justify it.
+5. Record the decision in an ADR (`docs/adr/`).
+6. Implement a small, understandable unit.
+7. Test it and document its limitations.
+8. Move on only when the current stage is sufficiently validated.
 
-Los asistentes de IA deben actuar como colaboradores técnicos y mentores, explicando el propósito del código generado y las decisiones que lo justifican. No deben producir grandes cantidades de código o agregar frameworks sin que exista un objetivo claro.
+Documentation, code, and comments are written in English. Design discussions may happen in Spanish.
 
-### Etapas de diseño de la Fase 1
+AI assistants must act as technical collaborators and mentors, explaining the purpose of generated code and the decisions behind it. They must not produce large amounts of code or add frameworks without a clear objective.
 
-| # | Etapa | Estado |
+### Phase 1 Design Stages
+
+| # | Stage | Status |
 |---|---|---|
-| 1 | Límites y arquitectura general | ADR-0001 propuesto |
-| 2 | Modelo de datos (`NormalizedEvent`) | Pendiente (existe un borrador previo, a revisar) |
-| 3 | Dataset sintético y verdad de referencia | Pendiente |
-| 4 | Motor de reglas | Pendiente |
-| 5 | Hallazgos y evidencia | Pendiente |
-| 6 | Evaluación | Pendiente |
-| 7 | Dónde entra la IA | Pendiente |
+| 1 | System boundaries and high-level architecture | ADR-0001 proposed |
+| 2 | Data model (`NormalizedEvent`) | Pending (an earlier draft exists, to be reviewed) |
+| 3 | Synthetic dataset and ground truth | Pending |
+| 4 | Rule engine | Pending |
+| 5 | Findings and evidence | Pending |
+| 6 | Evaluation | Pending |
+| 7 | Where AI fits in | Pending |
 
-## 12. Principio rector
+## 12. Guiding Principle
 
 **Build a reliable security engine first. Then turn it into an AI-assisted investigation platform.**
 
-Primero, detecciones confiables y medibles. Después, explicaciones fundamentadas. Finalmente, agentes, integraciones cloud y una experiencia de usuario profesional.
+First, reliable and measurable detections. Then, grounded explanations. Finally, agents, cloud integrations, and a professional user experience.
 
-CyberSec AI debe crecer a partir de evidencia y resultados verificables, no de complejidad técnica innecesaria.
+CyberSec AI must grow from evidence and verifiable results, not from unnecessary technical complexity.
